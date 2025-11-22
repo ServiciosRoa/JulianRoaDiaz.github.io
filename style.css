@@ -1,142 +1,181 @@
 /* --- RESET AND BASE STYLES --- */
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Roboto', sans-serif; /* Modern, readable font */
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f7f9fc; /* Light, subtle background */
+    background-color: #eef2f7; /* Very light cool background */
     color: #333;
 }
 
 /* --- CONTAINER AND LAYOUT --- */
 .container {
-    max-width: 900px;
+    max-width: 950px;
     margin: 40px auto;
-    padding: 30px;
+    padding: 0; /* Remove internal padding to use header edge-to-edge */
     background-color: #ffffff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Soft shadow */
-    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Deeper shadow for elevation */
+    border-radius: 10px;
+    overflow: hidden; /* Contains header bleed */
 }
 
 /* --- HEADER STYLING --- */
 .header {
-    background-color: #0056b3; /* Primary Professional Blue */
-    color: white;
-    padding: 50px 30px;
+    background-color: #1a237e; /* Deep Navy Blue for impact */
+    color: #ffffff;
+    padding: 60px 40px 30px 40px;
     text-align: center;
-    margin: -30px -30px 30px -30px; /* Extends header to container edges */
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    position: relative;
+    margin-bottom: 20px;
 }
 
 .header h1 {
     margin-bottom: 5px;
-    font-size: 2.8em;
-    font-weight: 700;
-    letter-spacing: 1px;
+    font-size: 3em;
+    font-weight: 900; /* Extra bold */
+    letter-spacing: 2px;
 }
 
 .header h2 {
-    margin-top: 0;
-    font-size: 1.6em;
+    margin-top: 5px;
+    font-size: 1.4em;
     font-weight: 300;
-    color: #c7dfff;
+    color: #9fa8da; /* Lighter shade for contrast */
 }
 
 .contact-info {
-    font-size: 0.95em;
-    margin-top: 20px;
+    font-size: 0.9em;
+    margin-top: 30px;
     padding-top: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- MAIN CONTENT PADDING --- */
+main .section {
+    padding: 0 40px 25px 40px; /* Add internal padding to sections */
 }
 
 /* --- SECTION STYLING --- */
 .section {
     margin-bottom: 30px;
-    padding-bottom: 25px;
-    border-bottom: 1px dashed #e0e0e0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
 }
 
 .section-title {
-    color: #0056b3; /* Primary Professional Blue */
-    font-size: 1.5em;
-    font-weight: 600;
-    margin-bottom: 15px;
-    padding-bottom: 5px;
-    border-left: 5px solid #ff9900; /* Accent Orange/Gold */
-    padding-left: 10px;
+    color: #1a237e; /* Deep Navy Blue */
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Decorative element for titles */
+.section-title::before {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 1.8em;
+    background-color: #ff5722; /* Vibrant Orange Accent */
+    margin-right: 15px;
+    border-radius: 3px;
 }
 
 /* --- ITEM STYLING (Experience/Education) --- */
 .item {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-left: 2px solid #e0e0e0; /* Timeline effect */
+    position: relative;
+}
+
+/* Timeline dot */
+.item::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: #ff5722; /* Vibrant Orange */
+    border-radius: 50%;
 }
 
 .item-title {
-    color: #333;
-    font-size: 1.2em;
+    color: #1a237e;
+    font-size: 1.25em;
     font-weight: 600;
     margin-bottom: 3px;
 }
 
 .item-meta {
-    font-style: italic;
-    color: #666;
+    font-style: normal;
+    color: #616161;
     margin-bottom: 10px;
-    font-size: 0.95em;
+    font-size: 0.9em;
 }
 
 .item ul {
-    list-style-type: none; /* Removes default dots */
+    list-style-type: none;
     margin-left: 0;
     padding-left: 0;
 }
 
 .item li {
-    padding-left: 1.5em; /* Space for custom bullet */
     position: relative;
     margin-bottom: 8px;
+    padding-left: 1.2em;
 }
 
 .item li::before {
-    content: "•"; /* Custom bullet point */
-    color: #ff9900; /* Accent color */
+    content: "✓"; /* Checkmark bullet */
+    color: #ff5722;
     font-weight: bold;
     display: inline-block;
     width: 1em;
-    margin-left: -1.5em;
+    margin-left: -1.2em;
     position: absolute;
+    font-size: 0.9em;
 }
 
 /* --- SKILLS GRID STYLING --- */
 .skills-section {
     border-bottom: none;
-    padding-bottom: 0;
+    padding-bottom: 40px;
 }
 
 .skills-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
     padding-top: 10px;
 }
 
 .skill-item {
-    background-color: #e6f0ff; /* Light blue background for skills */
-    color: #0056b3;
-    padding: 8px 15px;
-    border-radius: 4px;
+    background-color: #ffffff; 
+    color: #1a237e;
+    padding: 8px 18px;
+    border-radius: 20px;
     font-size: 0.9em;
     font-weight: 500;
-    border: 1px solid #cce0ff;
+    border: 1px solid #bbdefb; /* Light border */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.skill-item:hover {
+    background-color: #ff5722;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255, 87, 34, 0.4);
 }
 
 /* --- FOOTER --- */
 .footer {
     text-align: center;
-    padding: 20px;
+    padding: 15px;
     font-size: 0.8em;
     color: #777;
-    margin-top: 20px;
+    background-color: #f0f4f8;
     border-top: 1px solid #e0e0e0;
 }
