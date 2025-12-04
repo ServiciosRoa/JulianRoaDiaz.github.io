@@ -1,0 +1,52 @@
+/* 1. Importar la fuente Poppins desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* 2. Estilos Base */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F8F9FA;
+}
+
+/* 3. Colores Personalizados (Tema Azul Verdoso / Teal) */
+.text-primary { color: #0891B2; } /* Teal-600 */
+.bg-primary { background-color: #0891B2; }
+.border-primary { border-color: #0891B2; }
+
+/* Color secundario para fondos de tarjetas */
+.bg-secondary { background-color: #F1F5F9; } /* Slate-100 */
+
+/* 4. Animación Hover para las Tarjetas */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Se mueve ligeramente hacia arriba */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* 5. Reglas de Impresión (Para asegurar que el PDF se vea bien) */
+@media print {
+    /* Forzar a los navegadores a imprimir los colores de fondo e imágenes */
+    body, .bg-gradient-to-br, .bg-secondary, .bg-cyan-100 {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    /* Eliminar sombras, ya que suelen pixelarse o verse mal en PDF impresos */
+    .shadow-2xl, .shadow-lg {
+        box-shadow: none !important;
+    }
+
+    /* Eliminar márgenes del contenedor para aprovechar toda la hoja */
+    .container {
+        padding: 0 !important;
+        margin: 0 !important;
+        max-w: 100% !important;
+    }
+
+    /* Fondo blanco puro para ahorrar tinta y limpieza */
+    body {
+        background-color: #FFFFFF;
+    }
+}

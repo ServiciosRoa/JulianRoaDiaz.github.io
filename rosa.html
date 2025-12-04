@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja de Vida - Rosa Nellis Méndez</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #F8F9FA;
+        }
+        /* Color principal para acentos y títulos */
+        .text-primary { color: #0891B2; } /* Teal-600 */
+        .bg-primary { background-color: #0891B2; }
+        .border-primary { border-color: #0891B2; }
+        
+        /* Color secundario para fondos suaves */
+        .bg-secondary { background-color: #F1F5F9; } /* Slate-100 */
+
+        /* Animación sutil para las tarjetas */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- ESTILOS ESPECIALES PARA IMPRESIÓN (PDF) --- */
+        @media print {
+            /* Forzar a los navegadores a imprimir colores de fondo e imágenes */
+            body, .bg-gradient-to-br, .bg-secondary, .bg-cyan-100 {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            /* Eliminar sombras que pueden renderizarse mal en PDF */
+            .shadow-2xl, .shadow-lg {
+                box-shadow: none !important;
+            }
+            /* Ajustar el contenedor principal para que no tenga márgenes/padding extra */
+            .container {
+                padding: 0 !important;
+                margin: 0 !important;
+                max-w: 100% !important;
+            }
+             /* Eliminar el fondo del body para la impresión */
+            body {
+                background-color: #FFFFFF;
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-700">
+
+    <div class="container mx-auto max-w-4xl p-4 sm:p-8">
+        <!-- Contenedor Principal -->
+        <div class="bg-white rounded-2xl shadow-2xl shadow-cyan-900/10 overflow-hidden">
+            
+            <!-- Encabezado -->
+            <header class="bg-gradient-to-br from-cyan-50 to-cyan-100 p-8 flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8">
+                <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-white shadow-lg flex-shrink-0">
+                    <img src="https://placehold.co/200x200/E0F2F7/0891B2?text=R.M." alt="Foto de Rosa Nellis Méndez" class="w-full h-full object-cover">
+                </div>
+                <div class="text-center sm:text-left">
+                    <h1 class="text-3xl sm:text-4xl font-bold text-primary">Rosa Nellis Méndez</h1>
+                    <p class="text-lg text-gray-600 mt-1">Futura Licenciada en Educación Primaria</p>
+                </div>
+            </header>
+
+            <!-- Contenido Principal -->
+            <main class="p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
+                
+                <!-- Columna Izquierda -->
+                <div class="lg:col-span-1 space-y-6">
+                    <!-- Contacto -->
+                    <section>
+                        <h2 class="text-xl font-bold text-primary border-b-2 border-primary pb-2 mb-4 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M17 18a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2"></path><rect x="3" y="4" width="18" height="18" rx="2"></rect><circle cx="12" cy="10" r="2"></circle><line x1="8" y1="2" x2="8" y2="4"></line><line x1="16" y1="2" x2="16" y2="4"></line></svg>
+                            Contacto
+                        </h2>
+                        <div class="space-y-3 text-gray-600 text-sm">
+                            <p class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-primary flex-shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> 809-982-5375</p>
+                            <p class="flex items-center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-primary flex-shrink-0"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> rosanellismendez@gmail.com</p>
+                            <p class="flex items-start"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-3 text-primary flex-shrink-0 mt-1"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg> Ciudad Juan Bosch, Santo Domingo Este, R.D.</p>
+                        </div>
+                    </section>
+
+                    <!-- Formación -->
+                    <section>
+                        <h2 class="text-xl font-bold text-primary border-b-2 border-primary pb-2 mb-4 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 5 4 5 6 5s6-0 6-5v-5"></path></svg>
+                            Formación Académica
+                        </h2>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="font-semibold">Licenciatura en Educación Primaria</h3>
+                                <p class="text-sm text-gray-500">Universidad Autónoma de Santo Domingo (UASD) - En curso</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Bachillerato Técnico</h3>
+                                <p class="text-sm text-gray-500">Politécnico Emma Balaguer, Santo Domingo Norte</p>
+                            </div>
+                        </div>
+                    </section>
+
+                     <!-- Referencias -->
+                    <section>
+                        <h2 class="text-xl font-bold text-primary border-b-2 border-primary pb-2 mb-4 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                            Referencias
+                        </h2>
+                        <div class="space-y-2 text-sm">
+                            <p class="whitespace-nowrap">Yeimi Pérez – 829-275-0866</p>
+                            <p class="whitespace-nowrap">Miguelina Cuevas – 829-513-0389</p>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Columna Derecha -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Resumen -->
+                    <section>
+                        <h2 class="text-xl font-bold text-primary border-b-2 border-primary pb-2 mb-4 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><circle cx="12" cy="12" r="10"></circle><path d="m12 16 4-4-4-4"></path><path d="M8 12h8"></path></svg>
+                            Resumen Profesional
+                        </h2>
+                        <p class="text-gray-600 leading-relaxed">
+                            Estudiante avanzada de Educación Primaria con vocación genuina por la enseñanza y el desarrollo infantil. Busco aportar mi compromiso, habilidades pedagógicas y entusiasmo a una institución que valore la excelencia y el bienestar estudiantil.
+                        </p>
+                    </section>
+                    
+                    <!-- Experiencia -->
+                    <section>
+                        <h2 class="text-xl font-bold text-primary border-b-2 border-primary pb-2 mb-4 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                            Experiencia Laboral
+                        </h2>
+                        <div class="space-y-6">
+                            <div class="card bg-secondary p-6 rounded-xl">
+                                <h3 class="font-bold text-lg text-gray-800">Asistente y Apoyo Docente en Nivel Primario</h3>
+                                <p class="text-md font-semibold text-primary mb-2">Colegio Martin Luther King, Santo Domingo Este</p>
+                                <ul class="list-disc list-inside space-y-2 text-gray-600 text-sm">
+                                    <li>Colaboración en la planificación y ejecución de clases.</li>
+                                    <li>Acompañamiento pedagógico y seguimiento individual a estudiantes.</li>
+                                    <li>Apoyo en la gestión de un ambiente de aula positivo e inclusivo.</li>
+                                    <li>Participación en actividades extracurriculares y proyectos.</li>
+                                </ul>
+                            </div>
+                             <div class="card bg-secondary p-6 rounded-xl">
+                                <h3 class="font-bold text-lg text-gray-800">Facilitadora del Programa de Alfabetización</h3>
+                                <p class="text-md font-semibold text-primary mb-2">Plan Nacional "Quisqueya Aprende Contigo"</p>
+                                <ul class="list-disc list-inside space-y-2 text-gray-600 text-sm">
+                                    <li>Enseñanza de lectoescritura básica a jóvenes y adultos.</li>
+                                    <li>Seguimiento del progreso individual de los participantes.</li>
+                                    <li>Creación de un ambiente de confianza y motivación para el aprendizaje.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Habilidades -->
+                    <section>
+                        <h2 class="text-xl font-bold text-primary border-b-2 border-primary pb-2 mb-4 flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            Habilidades Destacadas
+                        </h2>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-cyan-100 text-cyan-800 text-sm font-medium px-4 py-2 rounded-full">Diseño de Lecciones</span>
+                            <span class="bg-cyan-100 text-cyan-800 text-sm font-medium px-4 py-2 rounded-full">Gestión de Aula</span>
+                            <span class="bg-cyan-100 text-cyan-800 text-sm font-medium px-4 py-2 rounded-full">Comunicación Empática</span>
+                            <span class="bg-cyan-100 text-cyan-800 text-sm font-medium px-4 py-2 rounded-full">Trabajo en Equipo</span>
+                            <span class="bg-cyan-100 text-cyan-800 text-sm font-medium px-4 py-2 rounded-full">Resolución de Problemas</span>
+                            <span class="bg-cyan-100 text-cyan-800 text-sm font-medium px-4 py-2 rounded-full">Actitud Positiva</span>
+                            <span class="bg-cyan-100 text-cyan-800 text-sm font-medium px-4 py-2 rounded-full">Responsabilidad</span>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>
