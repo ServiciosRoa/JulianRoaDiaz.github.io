@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Page Not Found | Servicios Roa</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2307090E'/%3E%3Cpath d='M12 45 L32 22 M25 82 L60 55 L88 72 M45 50 L60 55' stroke='%2300A8E8' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='22' r='6' fill='%2300A8E8'/%3E%3Ccircle cx='60' cy='55' r='7' fill='%2300A8E8'/%3E%3Ccircle cx='25' cy='82' r='6' fill='%2300A8E8'/%3E%3Ccircle cx='88' cy='72' r='6' fill='%23EF4444'/%3E%3Cpath d='M35 28 C25 28 18 35 18 45 C18 58 35 72 35 72 C35 72 52 58 52 45 C52 35 45 28 35 28 Z' fill='%23FACC15'/%3E%3Ccircle cx='35' cy='44' r='7' fill='%2307090E'/%3E%3Cpath d='M80 36 C72 36 66 42 66 50 C66 61 80 72 80 72 C80 72 94 61 94 50 C94 42 88 36 80 36 Z' fill='%23EF4444'/%3E%3Ccircle cx='80' cy='49' r='5.5' fill='%2307090E'/%3E%3C/svg%3E" />
+  <style>
+    :root {
+      --bg-onyx: #07090E;
+      --bg-card: #131B2E;
+      --text-primary: #F8FAFC;
+      --text-secondary: #CBD5E1;
+      --brand-cyan: #00A8E8;
+      --brand-gold: #FACC15;
+      --brand-red: #EF4444;
+      --border-subtle: rgba(148, 163, 184, 0.22);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-onyx);
+      background-image: radial-gradient(circle at 15% 15%, rgba(0, 168, 232, 0.12), transparent 35%),
+                        radial-gradient(circle at 85% 25%, rgba(239, 68, 68, 0.08), transparent 35%);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      line-height: 1.6;
+    }
+    :focus-visible { outline: 3px solid var(--brand-gold); outline-offset: 3px; border-radius: 4px; }
+    header {
+      padding: 1.25rem 2rem;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-weight: 800;
+      font-size: 1.15rem;
+    }
+    .brand span {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--brand-cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.25rem;
+    }
+    .error-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: clamp(2rem, 5vw, 3.5rem);
+      max-width: 640px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+    }
+    .badge-404 {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      color: #FCA5A5;
+      font-weight: 700;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+    .code-title {
+      font-size: clamp(3.5rem, 8vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(95deg, var(--brand-cyan), var(--brand-gold), var(--brand-red));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.75rem;
+    }
+    h1 { font-size: clamp(1.4rem, 3vw, 1.85rem); margin-bottom: 0.75rem; }
+    p { color: var(--text-secondary); margin-bottom: 1.75rem; font-size: 1rem; }
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 1.4rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--brand-cyan), #0284C7);
+      color: #041019;
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-primary);
+      border: 1px solid var(--border-subtle);
+    }
+    .contact-box {
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+    }
+    .contact-box a { color: var(--brand-cyan); font-weight: 700; text-decoration: none; }
+    .contact-box a:hover { text-decoration: underline; }
+    footer {
+      text-align: center;
+      padding: 1.25rem;
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border-subtle);
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <a href="/" class="brand" aria-label="Servicios Roa Home">
+      <svg width="40" height="40" viewBox="0 0 100 100" role="img" aria-label="Servicios Roa Logo">
+        <rect width="100" height="100" rx="20" fill="#05070B" stroke="#1E293B" stroke-width="3"/>
+        <path d="M10 46 L30 22 M22 84 L58 55 L86 74 M42 48 L58 55" stroke="#00A8E8" stroke-width="4.5" stroke-linecap="round"/>
+        <circle cx="30" cy="22" r="5" fill="#00A8E8"/>
+        <circle cx="58" cy="55" r="6" fill="#00A8E8"/>
+        <path d="M36 28 C26 28 19 35 19 45 C19 57 36 71 36 71 C36 71 53 57 53 45 C53 35 46 28 36 28 Z" fill="#FACC15"/>
+        <circle cx="36" cy="44" r="6.5" fill="#05070B"/>
+        <path d="M80 36 C72 36 66 42 66 50 C66 60 80 71 80 71 C80 71 94 60 94 50 C94 42 88 36 80 36 Z" fill="#EF4444"/>
+        <circle cx="80" cy="49" r="5" fill="#05070B"/>
+      </svg>
+      <div>
+        SERVICIOS ROA
+        <span>Language Specialized Dept.</span>
+      </div>
+    </a>
+  </header>
+
+  <main role="main">
+    <section class="error-card" aria-labelledby="error-title">
+      <span class="badge-404">HTTP 404 Error — Endpoint Not Found</span>
+      <div class="code-title" aria-hidden="true">404</div>
+      <h1 id="error-title">Communication Endpoint Not Found</h1>
+      <p>The page or resource you requested does not exist or has been relocated. Our OPI and VRI language channels remain active 24/7.</p>
+      
+      <div class="btn-group">
+        <a href="/" class="btn btn-primary">Return to Homepage</a>
+        <a href="/#quote" class="btn btn-secondary">Request a Service Quote</a>
+      </div>
+
+      <div class="contact-box">
+        Immediate U.S. OPI / VRI Dispatch: <a href="tel:+16096049955">+1 (609) 604-9955</a> &bull; 
+        Email: <a href="mailto:admin@serviciosroa.com">admin@serviciosroa.com</a>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    &copy; 2026 Servicios Roa — Language Specialized Department. All rights reserved.
+  </footer>
+</body>
+</html>
