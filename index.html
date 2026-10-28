@@ -11,7 +11,7 @@
   <!-- Custom Brand SVG Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2307090E'/%3E%3Cpath d='M12 45 L32 22 M25 82 L60 55 L88 72 M45 50 L60 55' stroke='%2300A8E8' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='22' r='6' fill='%2300A8E8'/%3E%3Ccircle cx='60' cy='55' r='7' fill='%2300A8E8'/%3E%3Ccircle cx='25' cy='82' r='6' fill='%2300A8E8'/%3E%3Ccircle cx='88' cy='72' r='6' fill='%23EF4444'/%3E%3Cpath d='M35 28 C25 28 18 35 18 45 C18 58 35 72 35 72 C35 72 52 58 52 45 C52 35 45 28 35 28 Z' fill='%23FACC15'/%3E%3Ccircle cx='35' cy='44' r='7' fill='%2307090E'/%3E%3Cpath d='M80 36 C72 36 66 42 66 50 C66 61 80 72 80 72 C80 72 94 61 94 50 C94 42 88 36 80 36 Z' fill='%23EF4444'/%3E%3Ccircle cx='80' cy='49' r='5.5' fill='%2307090E'/%3E%3C/svg%3E" />
 
-  <!-- Carrier & Search Engine Verification Schema (No Personal Name Disclosed) -->
+  <!-- Carrier & Search Engine Verification Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -43,7 +43,7 @@
 
   <style>
     /* ==========================================================================
-       1. CSS CUSTOM PROPERTIES & HIGH-CONTRAST / ACCESSIBILITY TOKENS
+       1. CSS CUSTOM PROPERTIES & TOKENS
        ========================================================================== */
     :root {
       --bg-onyx: #07090E;
@@ -64,47 +64,30 @@
       --radius-sm: 8px;
       --radius-md: 14px;
       --radius-lg: 20px;
-      --container-max: 1220px;
+      --container-max: 1240px;
       --transition-fast: 0.18s ease;
     }
 
-    /* High Contrast Mode Override */
     body.high-contrast {
       --bg-onyx: #000000;
       --bg-surface: #050505;
       --bg-card: #0A0A0A;
-      --bg-elevated: #141414;
       --text-primary: #FFFFFF;
       --text-secondary: #F1F5F9;
       --text-muted: #E2E8F0;
       --brand-cyan: #38BDF8;
       --brand-gold: #FDE047;
       --border-subtle: rgba(255, 255, 255, 0.55);
-      --border-strong: #FDE047;
-    }
-
-    @media (prefers-contrast: more) {
-      :root {
-        --bg-onyx: #000000;
-        --bg-card: #0B0F17;
-        --text-primary: #FFFFFF;
-        --text-secondary: #E2E8F0;
-        --border-subtle: rgba(255, 255, 255, 0.45);
-      }
     }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
       }
     }
 
-    /* ==========================================================================
-       2. BASE RESET & FLUID TYPOGRAPHY
-       ========================================================================== */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -117,7 +100,7 @@
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--bg-onyx);
       background-image:
         radial-gradient(circle at 12% 10%, rgba(0, 168, 232, 0.11), transparent 32%),
@@ -129,14 +112,12 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Keyboard Focus Ring */
     :focus-visible {
       outline: 3px solid var(--brand-gold);
       outline-offset: 3px;
       border-radius: 4px;
     }
 
-    /* Skip Link for Keyboard / Screen Reader Users */
     .skip-link {
       position: fixed;
       top: -100px;
@@ -148,66 +129,39 @@
       padding: 0.75rem 1.25rem;
       border-radius: var(--radius-sm);
       text-decoration: none;
-      box-shadow: var(--shadow-lg);
-      transition: top var(--transition-fast);
     }
-
-    .skip-link:focus {
-      top: 1rem;
-    }
+    .skip-link:focus { top: 1rem; }
 
     .container {
       width: 100%;
       max-width: var(--container-max);
       margin: 0 auto;
-      padding: 0 clamp(1.1rem, 4vw, 2.5rem);
+      padding: 0 clamp(1rem, 3vw, 2rem);
     }
 
-    section {
-      padding: clamp(3.5rem, 7vw, 6rem) 0;
-    }
+    section { padding: clamp(3.5rem, 7vw, 6rem) 0; }
 
     h1, h2, h3, h4 {
       line-height: 1.2;
       font-weight: 800;
       letter-spacing: -0.02em;
     }
+    h1 { font-size: clamp(2.1rem, 4.5vw, 3.55rem); }
+    h2 { font-size: clamp(1.65rem, 3.2vw, 2.5rem); }
+    h3 { font-size: clamp(1.2rem, 2vw, 1.45rem); }
 
-    h1 {
-      font-size: clamp(2.1rem, 4.5vw, 3.55rem);
-    }
-
-    h2 {
-      font-size: clamp(1.65rem, 3.2vw, 2.5rem);
-    }
-
-    h3 {
-      font-size: clamp(1.2rem, 2vw, 1.45rem);
-    }
-
-    p {
-      color: var(--text-secondary);
-      font-size: clamp(0.96rem, 1.1vw, 1.06rem);
-    }
-
-    a {
-      color: var(--brand-cyan);
-      text-decoration: none;
-      transition: color var(--transition-fast);
-    }
-
-    a:hover {
-      color: var(--brand-cyan-hover);
-    }
+    p { color: var(--text-secondary); font-size: clamp(0.96rem, 1.1vw, 1.06rem); }
+    a { color: var(--brand-cyan); text-decoration: none; transition: color var(--transition-fast); }
+    a:hover { color: var(--brand-cyan-hover); }
 
     /* ==========================================================================
-       3. HEADER & ACCESSIBLE NAVIGATION
+       2. HEADER & REFINED NAVIGATION BAR
        ========================================================================== */
     .site-header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(7, 9, 14, 0.9);
+      background: rgba(7, 9, 14, 0.92);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border-subtle);
     }
@@ -217,45 +171,52 @@
       align-items: center;
       justify-content: space-between;
       min-height: 78px;
-      gap: 1rem;
+      gap: 0.75rem;
     }
 
     .brand-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.85rem;
+      gap: 0.65rem;
       color: var(--text-primary);
       text-decoration: none;
+      flex-shrink: 0;
     }
 
     .brand-title {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: 900;
       letter-spacing: -0.02em;
       display: block;
+      white-space: nowrap;
     }
 
     .brand-subtitle {
-      font-size: 0.72rem;
+      font-size: 0.66rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.09em;
+      letter-spacing: 0.08em;
       color: var(--brand-cyan);
       display: block;
+      white-space: nowrap;
     }
 
+    /* Optimized Navigation Links for Clean Single-Line Layout */
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1.5rem;
+      gap: 1.1rem;
       list-style: none;
+      margin: 0;
+      padding: 0;
     }
 
     .nav-links a {
       color: var(--text-secondary);
       font-weight: 600;
-      font-size: 0.94rem;
-      padding: 0.4rem 0.2rem;
+      font-size: 0.88rem;
+      white-space: nowrap;
+      transition: color var(--transition-fast);
     }
 
     .nav-links a:hover,
@@ -266,64 +227,50 @@
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 0.65rem;
+      gap: 0.5rem;
+      flex-shrink: 0;
     }
 
     .utility-btn {
       background: rgba(255, 255, 255, 0.06);
       color: var(--text-primary);
       border: 1px solid var(--border-subtle);
-      padding: 0.48rem 0.78rem;
+      padding: 0.42rem 0.65rem;
       border-radius: var(--radius-sm);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      transition: background var(--transition-fast), border-color var(--transition-fast);
+      gap: 0.35rem;
+      white-space: nowrap;
     }
-
-    .utility-btn:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: var(--brand-cyan);
-    }
-
-    .utility-btn[aria-pressed="true"] {
-      background: var(--brand-gold);
-      color: #000000;
-      border-color: var(--brand-gold);
-    }
+    .utility-btn:hover { background: rgba(255, 255, 255, 0.12); border-color: var(--brand-cyan); }
+    .utility-btn[aria-pressed="true"] { background: var(--brand-gold); color: #000000; border-color: var(--brand-gold); }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.55rem;
-      padding: 0.78rem 1.35rem;
+      gap: 0.45rem;
+      padding: 0.65rem 1.1rem;
       border-radius: 10px;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       cursor: pointer;
       border: none;
       text-decoration: none;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+      white-space: nowrap;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast);
     }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
+    .btn:hover { transform: translateY(-1px); }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--brand-cyan), #0284C7);
       color: #041019;
-      box-shadow: 0 8px 25px rgba(0, 168, 232, 0.28);
+      box-shadow: 0 6px 20px rgba(0, 168, 232, 0.25);
     }
-
-    .btn-primary:hover {
-      color: #041019;
-      box-shadow: 0 10px 30px rgba(0, 168, 232, 0.4);
-    }
+    .btn-primary:hover { color: #041019; box-shadow: 0 8px 25px rgba(0, 168, 232, 0.38); }
 
     .btn-secondary {
       background: rgba(255, 255, 255, 0.06);
@@ -331,24 +278,19 @@
       border: 1px solid var(--border-subtle);
     }
 
-    .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.12);
-      color: var(--text-primary);
-    }
-
     .mobile-menu-toggle {
       display: none;
       background: transparent;
       border: 1px solid var(--border-subtle);
       color: var(--text-primary);
-      padding: 0.5rem 0.7rem;
+      padding: 0.45rem 0.65rem;
       border-radius: var(--radius-sm);
       cursor: pointer;
       font-weight: 700;
     }
 
     /* ==========================================================================
-       4. HERO SECTION
+       3. HERO SECTION
        ========================================================================== */
     .hero-grid {
       display: grid;
@@ -421,14 +363,12 @@
       color: var(--text-secondary);
     }
 
-    /* Operations Console Card */
     .ops-card {
       background: linear-gradient(160deg, var(--bg-card), var(--bg-surface));
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg);
       padding: clamp(1.5rem, 3vw, 2.2rem);
       box-shadow: var(--shadow-lg);
-      position: relative;
     }
 
     .ops-header {
@@ -470,17 +410,14 @@
     }
 
     /* ==========================================================================
-       5. ACCESSIBLE TABS (OPI / VRI / TRANSLATION MODALITIES)
+       4. TABS SECTION
        ========================================================================== */
     .section-header {
       text-align: center;
       max-width: 720px;
       margin: 0 auto 3rem;
     }
-
-    .section-header p {
-      margin-top: 0.75rem;
-    }
+    .section-header p { margin-top: 0.75rem; }
 
     .tabs-wrapper {
       background: var(--bg-card);
@@ -509,15 +446,14 @@
       font-weight: 700;
       font-size: 0.95rem;
       cursor: pointer;
-      transition: all var(--transition-fast);
       text-align: center;
+      transition: all var(--transition-fast);
     }
 
     .tab-btn[aria-selected="true"] {
       background: linear-gradient(135deg, rgba(0, 168, 232, 0.22), rgba(0, 168, 232, 0.08));
       color: var(--text-primary);
       border-color: var(--brand-cyan);
-      box-shadow: inset 0 0 0 1px var(--brand-cyan);
     }
 
     .tabpanel {
@@ -526,10 +462,7 @@
       gap: 2rem;
       align-items: center;
     }
-
-    .tabpanel.active {
-      display: grid;
-    }
+    .tabpanel.active { display: grid; }
 
     .feature-checklist {
       list-style: none;
@@ -546,11 +479,7 @@
       font-size: 0.95rem;
     }
 
-    .check-icon {
-      color: var(--brand-gold);
-      font-weight: 900;
-      flex-shrink: 0;
-    }
+    .check-icon { color: var(--brand-gold); font-weight: 900; flex-shrink: 0; }
 
     .spec-box {
       background: var(--bg-surface);
@@ -560,7 +489,7 @@
     }
 
     /* ==========================================================================
-       6. INDUSTRY SECTORS GRID
+       5. INDUSTRY SECTORS & FORM
        ========================================================================== */
     .cards-grid {
       display: grid;
@@ -578,11 +507,7 @@
       justify-content: space-between;
       transition: transform var(--transition-fast), border-color var(--transition-fast);
     }
-
-    .sector-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--brand-cyan);
-    }
+    .sector-card:hover { transform: translateY(-4px); border-color: var(--brand-cyan); }
 
     .sector-icon {
       width: 48px;
@@ -597,9 +522,6 @@
       border: 1px solid rgba(0, 168, 232, 0.35);
     }
 
-    /* ==========================================================================
-       7. QUOTE ESTIMATOR & ACCESSIBLE FORM WITH FALLBACK RECOVERY
-       ========================================================================== */
     .quote-layout {
       display: grid;
       grid-template-columns: 0.9fr 1.1fr;
@@ -626,10 +548,7 @@
       flex-direction: column;
       gap: 0.42rem;
     }
-
-    .form-group.full-width {
-      grid-column: 1 / -1;
-    }
+    .form-group.full-width { grid-column: 1 / -1; }
 
     label {
       font-size: 0.82rem;
@@ -639,10 +558,7 @@
       color: var(--text-secondary);
     }
 
-    .required-star {
-      color: var(--brand-red);
-      margin-left: 2px;
-    }
+    .required-star { color: var(--brand-red); margin-left: 2px; }
 
     input[type="text"],
     input[type="email"],
@@ -658,21 +574,8 @@
       padding: 0.8rem 0.95rem;
       font-size: 0.96rem;
       font-family: inherit;
-      transition: border-color var(--transition-fast);
     }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: var(--brand-cyan);
-    }
-
-    input[aria-invalid="true"],
-    select[aria-invalid="true"],
-    textarea[aria-invalid="true"] {
-      border-color: var(--brand-red);
-      background: rgba(239, 68, 68, 0.06);
-    }
+    input:focus, select:focus, textarea:focus { border-color: var(--brand-cyan); }
 
     .field-error {
       color: #FCA5A5;
@@ -680,12 +583,8 @@
       font-weight: 600;
       display: none;
     }
+    .field-error.visible { display: block; }
 
-    .field-error.visible {
-      display: block;
-    }
-
-    /* Fallback Alert Banner inside Form */
     .fallback-banner {
       display: none;
       margin-top: 1.25rem;
@@ -695,10 +594,7 @@
       border: 1px solid rgba(250, 204, 21, 0.5);
       color: var(--text-primary);
     }
-
-    .fallback-banner.visible {
-      display: block;
-    }
+    .fallback-banner.visible { display: block; }
 
     .privacy-guarantee {
       margin-top: 1.15rem;
@@ -714,7 +610,7 @@
     }
 
     /* ==========================================================================
-       8. MODALS & FOOTER
+       6. MODALS & FOOTER
        ========================================================================== */
     .modal-backdrop {
       position: fixed;
@@ -727,10 +623,7 @@
       justify-content: center;
       padding: 1.25rem;
     }
-
-    .modal-backdrop.open {
-      display: flex;
-    }
+    .modal-backdrop.open { display: flex; }
 
     .modal-dialog {
       background: var(--bg-card);
@@ -790,15 +683,17 @@
       text-decoration: underline;
       padding: 0.2rem 0.4rem;
     }
-
-    .footer-link-btn:hover {
-      color: var(--brand-cyan);
-    }
+    .footer-link-btn:hover { color: var(--brand-cyan); }
 
     /* ==========================================================================
-       9. RESPONSIVE MEDIA QUERIES (TABLET & MOBILE BREAKPOINTS)
+       7. RESPONSIVE BREAKPOINTS
        ========================================================================== */
-    @media (max-width: 980px) {
+    @media (max-width: 1024px) {
+      .nav-links { gap: 0.75rem; }
+      .nav-links a { font-size: 0.82rem; }
+    }
+
+    @media (max-width: 900px) {
       .hero-grid,
       .tabpanel.active,
       .quote-layout,
@@ -818,61 +713,37 @@
         padding: 1.25rem;
         gap: 1rem;
       }
-
-      .nav-links.mobile-open {
-        display: flex;
-      }
-
-      .mobile-menu-toggle {
-        display: inline-flex;
-      }
+      .nav-links.mobile-open { display: flex; }
+      .mobile-menu-toggle { display: inline-flex; }
     }
 
     @media (max-width: 640px) {
-      .form-grid,
-      .hero-metrics {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-cta-group .btn {
-        width: 100%;
-      }
-
-      .brand-subtitle {
-        font-size: 0.64rem;
-      }
+      .form-grid, .hero-metrics { grid-template-columns: 1fr; }
+      .hero-cta-group .btn { width: 100%; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Skip Navigation Link for Screen Readers & Keyboard Users -->
-  <a href="#main-content" class="skip-link" data-i18n="skip_link">Skip to main content</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- NoScript Fallback Banner -->
   <noscript>
     <div role="alert" style="background:#FACC15; color:#000; padding:1rem; text-align:center; font-weight:700;">
-      JavaScript is currently disabled in your browser. You can still browse all Servicios Roa OPI &amp; VRI services and contact our U.S. desk directly at <a href="tel:+16096049955" style="color:#000; text-decoration:underline;">+1 (609) 604-9955</a> or <a href="mailto:admin@serviciosroa.com" style="color:#000; text-decoration:underline;">admin@serviciosroa.com</a>.
+      JavaScript is disabled. Contact our U.S. desk at <a href="tel:+16096049955" style="color:#000;">+1 (609) 604-9955</a> or <a href="mailto:admin@serviciosroa.com" style="color:#000;">admin@serviciosroa.com</a>.
     </div>
   </noscript>
 
-  <!-- ==================== SITE HEADER ==================== -->
+  <!-- HEADER -->
   <header class="site-header" role="banner">
     <div class="container nav-bar">
-      <a href="#top" class="brand-link" aria-label="Servicios Roa Language Specialized Department Home">
-        <!-- Custom Recreated Vector Logo from User Screenshot -->
-        <svg width="44" height="44" viewBox="0 0 100 100" role="img" aria-labelledby="logo-title logo-desc">
-          <title id="logo-title">Servicios Roa Network Logo</title>
-          <desc id="logo-desc">Dark onyx emblem featuring electric cyan communication nodes, a gold location pin, and a coral-red destination pin.</desc>
+      <a href="#top" class="brand-link" aria-label="Servicios Roa Home">
+        <svg width="40" height="40" viewBox="0 0 100 100" role="img" aria-labelledby="logo-title logo-desc">
+          <title id="logo-title">Servicios Roa Logo</title>
+          <desc id="logo-desc">Network emblem with cyan nodes and yellow/red pins.</desc>
           <rect width="100" height="100" rx="22" fill="#05070B" stroke="#1E293B" stroke-width="3"/>
-          <path d="M10 46 L30 22 M22 84 L58 55 L86 74 M42 48 L58 55 M70 24 L82 34" stroke="#00A8E8" stroke-width="4.5" stroke-linecap="round"/>
-          <circle cx="10" cy="46" r="5" fill="#05070B" stroke="#00A8E8" stroke-width="4"/>
+          <path d="M10 46 L30 22 M22 84 L58 55 L86 74 M42 48 L58 55" stroke="#00A8E8" stroke-width="4.5" stroke-linecap="round"/>
           <circle cx="30" cy="22" r="5" fill="#00A8E8"/>
-          <circle cx="70" cy="24" r="6" fill="#05070B" stroke="#00A8E8" stroke-width="4"/>
           <circle cx="58" cy="55" r="6" fill="#00A8E8"/>
-          <circle cx="22" cy="84" r="5.5" fill="#00A8E8"/>
-          <circle cx="86" cy="74" r="5" fill="#EF4444"/>
-          <circle cx="62" cy="84" r="5.5" fill="#05070B" stroke="#EF4444" stroke-width="4"/>
           <path d="M36 28 C26 28 19 35 19 45 C19 57 36 71 36 71 C36 71 53 57 53 45 C53 35 46 28 36 28 Z" fill="#FACC15"/>
           <circle cx="36" cy="44" r="6.5" fill="#05070B"/>
           <path d="M80 36 C72 36 66 42 66 50 C66 60 80 71 80 71 C80 71 94 60 94 50 C94 42 88 36 80 36 Z" fill="#EF4444"/>
@@ -880,7 +751,7 @@
         </svg>
         <div>
           <span class="brand-title">SERVICIOS ROA</span>
-          <span class="brand-subtitle" data-i18n="brand_sub">Language Specialized Dept.</span>
+          <span class="brand-subtitle">Language Specialized Dept.</span>
         </div>
       </a>
 
@@ -889,76 +760,75 @@
           Menu &#9776;
         </button>
         <ul class="nav-links" id="primary-nav-list">
-          <li><a href="#solutions" data-i18n="nav_solutions">OPI &amp; VRI Solutions</a></li>
-          <li><a href="#industries" data-i18n="nav_industries">U.S. Sectors</a></li>
-          <li><a href="#compliance" data-i18n="nav_compliance">Security &amp; Telecom</a></li>
-          <li><a href="#quote" data-i18n="nav_quote">Get a Quote</a></li>
+          <li><a href="#solutions">OPI &amp; VRI Solutions</a></li>
+          <li><a href="#industries">U.S. Sectors</a></li>
+          <li><a href="#compliance">Security &amp; Telecom</a></li>
+          <li><a href="#quote">Get a Quote</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <button type="button" class="utility-btn" id="contrast-toggle" aria-pressed="false" title="Toggle High-Contrast Accessibility Mode">
-          <span aria-hidden="true">&#9680;</span> <span data-i18n="btn_contrast">Contrast</span>
+        <button type="button" class="utility-btn" id="contrast-toggle" aria-pressed="false" title="Toggle Contrast">
+          <span aria-hidden="true">&#9680;</span> Contrast
         </button>
-        <button type="button" class="utility-btn" id="lang-toggle" aria-label="Switch Language between English and Spanish">
+        <button type="button" class="utility-btn" id="lang-toggle" aria-label="Switch Language">
           EN / ES
         </button>
-        <a href="tel:+16096049955" class="btn btn-primary" aria-label="Call U.S. OPI Dispatch at +1 609-604-9955">
+        <a href="tel:+16096049955" class="btn btn-primary" aria-label="Call +1 609-604-9955">
           +1 (609) 604-9955
         </a>
       </div>
     </div>
   </header>
 
-  <!-- ==================== MAIN CONTENT ==================== -->
+  <!-- MAIN CONTENT -->
   <main id="main-content" role="main">
 
-    <!-- 1. HERO SECTION -->
+    <!-- HERO SECTION -->
     <section id="top" aria-labelledby="hero-heading">
       <div class="container hero-grid">
         <div>
           <div class="eyebrow-badge">
             <span class="status-dot" aria-hidden="true"></span>
-            <span data-i18n="hero_badge">U.S. B2B Spanish &harr; English Language Infrastructure</span>
+            <span>U.S. B2B Spanish &harr; English Language Infrastructure</span>
           </div>
           <h1 id="hero-heading">
-            <span data-i18n="hero_title_1">Precision</span>
-            <span class="gradient-text" data-i18n="hero_title_highlight">OPI &amp; VRI Interpretation</span>
-            <span data-i18n="hero_title_2">for U.S. Enterprises.</span>
+            <span>Precision</span>
+            <span class="gradient-text">OPI &amp; VRI Interpretation</span>
+            <span>for U.S. Enterprises.</span>
           </h1>
-          <p class="hero-lead" data-i18n="hero_lead">
+          <p class="hero-lead">
             Servicios Roa’s Language Specialized Department delivers on-demand and scheduled Over-the-Phone (OPI) and Video Remote Interpretation (VRI) for U.S. healthcare networks, legal practices, insurance carriers, and Language Service Providers.
           </p>
 
           <div class="hero-cta-group">
-            <a href="#quote" class="btn btn-primary" data-i18n="cta_primary">Request Enterprise Quote</a>
-            <a href="tel:+16096049955" class="btn btn-secondary" data-i18n="cta_secondary">Direct U.S. Line: (609) 604-9955</a>
+            <a href="#quote" class="btn btn-primary">Request Enterprise Quote</a>
+            <a href="tel:+16096049955" class="btn btn-secondary">Direct U.S. Line: (609) 604-9955</a>
           </div>
 
-          <div class="hero-metrics" role="region" aria-label="Key Service Performance Metrics">
+          <div class="hero-metrics">
             <div class="metric-item">
               <strong>&lt; 15 Sec</strong>
-              <span data-i18n="metric_1">Average OPI / VRI Bridge Time</span>
+              <span>Average OPI / VRI Bridge Time</span>
             </div>
             <div class="metric-item">
               <strong>HIPAA &amp; Legal</strong>
-              <span data-i18n="metric_2">Confidentiality Protocols</span>
+              <span>Confidentiality Protocols</span>
             </div>
             <div class="metric-item">
               <strong>99.9%</strong>
-              <span data-i18n="metric_3">Terminology Accuracy Audit</span>
+              <span>Terminology Accuracy Audit</span>
             </div>
           </div>
         </div>
 
-        <!-- Live Operations Card -->
-        <aside class="ops-card" aria-label="Language Operations Telemetry">
+        <aside class="ops-card">
           <div class="ops-header">
             <div>
-              <strong style="display:block; font-size:1.05rem;" data-i18n="ops_title">Language Operations Desk</strong>
+              <strong style="display:block; font-size:1.05rem;">Language Operations Desk</strong>
               <span style="font-size:0.8rem; color:var(--text-muted);">Servicios Roa &bull; U.S. Telecom Node</span>
             </div>
-            <span class="tag-pill" data-i18n="ops_status">Active 24/7</span>
+            <span class="tag-pill">Active 24/7</span>
           </div>
 
           <ul class="ops-list">
@@ -995,12 +865,12 @@
       </div>
     </section>
 
-    <!-- 2. ACCESSIBLE TABS: OPI / VRI / TRANSLATION SOLUTIONS -->
+    <!-- SOLUTIONS TABS -->
     <section id="solutions" aria-labelledby="solutions-heading">
       <div class="container">
         <div class="section-header">
-          <h2 id="solutions-heading" data-i18n="sol_heading">Specialized Communication Modalities</h2>
-          <p data-i18n="sol_sub">Use your mouse or Left/Right arrow keys to explore how we integrate into your existing U.S. clinical, legal, or call-center workflows.</p>
+          <h2 id="solutions-heading">Specialized Communication Modalities</h2>
+          <p>Explore how we integrate into your existing U.S. clinical, legal, or call-center workflows.</p>
         </div>
 
         <div class="tabs-wrapper">
@@ -1016,7 +886,6 @@
             </button>
           </div>
 
-          <!-- Panel 1: OPI -->
           <div id="panel-opi" class="tabpanel active" role="tabpanel" aria-labelledby="tab-opi" tabindex="0">
             <div>
               <h3>Over-the-Phone Interpretation (OPI)</h3>
@@ -1031,34 +900,30 @@
             </div>
             <div class="spec-box">
               <h4 style="margin-bottom:0.75rem; color:var(--brand-cyan);">OPI Technical Specifications</h4>
-              <p style="font-size:0.9rem; margin-bottom:0.6rem;"><strong>Primary Language Pair:</strong> English (US) &harr; Spanish (Latin America / US / Neutral)</p>
-              <p style="font-size:0.9rem; margin-bottom:0.6rem;"><strong>Connection Methods:</strong> Direct Dial (+1 609-604-9955), Warm Transfer, Five9, Genesys, RingCentral, Twilio</p>
-              <p style="font-size:0.9rem;"><strong>Billing Structures:</strong> Per-Minute OPI, Dedicated Block Hours, or Retainer</p>
+              <p style="font-size:0.9rem; margin-bottom:0.6rem;"><strong>Primary Language Pair:</strong> English (US) &harr; Spanish</p>
+              <p style="font-size:0.9rem; margin-bottom:0.6rem;"><strong>Connection Methods:</strong> Direct Dial (+1 609-604-9955), Five9, Genesys, RingCentral</p>
+              <p style="font-size:0.9rem;"><strong>Billing:</strong> Per-Minute OPI or Dedicated Retainer</p>
             </div>
           </div>
 
-          <!-- Panel 2: VRI -->
           <div id="panel-vri" class="tabpanel" role="tabpanel" aria-labelledby="tab-vri" tabindex="0" hidden>
             <div>
               <h3>Video Remote Interpretation (VRI)</h3>
               <p style="margin-top:0.6rem;">
-                High-definition visual connection where non-verbal cues, patient demonstrations, physical therapy evaluations, and multi-party legal depositions require face-to-face clarity.
+                High-definition visual connection where non-verbal cues, patient demonstrations, and multi-party legal depositions require face-to-face clarity.
               </p>
               <ul class="feature-checklist">
-                <li><span class="check-icon" aria-hidden="true">&#10003;</span> <span>Compatible with Zoom Healthcare, Microsoft Teams, Webex, Doxy.me, and Epic Telehealth.</span></li>
+                <li><span class="check-icon" aria-hidden="true">&#10003;</span> <span>Compatible with Zoom Healthcare, Microsoft Teams, Webex, and Epic Telehealth.</span></li>
                 <li><span class="check-icon" aria-hidden="true">&#10003;</span> <span>Professional neutral backdrop, noise-canceling headset, and HIPAA-compliant private workstation.</span></li>
-                <li><span class="check-icon" aria-hidden="true">&#10003;</span> <span>On-demand dispatch or pre-scheduled calendar links for depositions and IEP school meetings.</span></li>
               </ul>
             </div>
             <div class="spec-box">
               <h4 style="margin-bottom:0.75rem; color:var(--brand-gold);">VRI Technical Specifications</h4>
               <p style="font-size:0.9rem; margin-bottom:0.6rem;"><strong>Video Resolution:</strong> 1080p HD Low-Latency Stream</p>
-              <p style="font-size:0.9rem; margin-bottom:0.6rem;"><strong>Environment:</strong> Acoustic-treated private studio, zero background visibility</p>
-              <p style="font-size:0.9rem;"><strong>Scheduling:</strong> Instant link join or 24-hour guaranteed calendar reservation</p>
+              <p style="font-size:0.9rem;"><strong>Scheduling:</strong> Instant link join or 24-hour guaranteed reservation</p>
             </div>
           </div>
 
-          <!-- Panel 3: Translation -->
           <div id="panel-trans" class="tabpanel" role="tabpanel" aria-labelledby="tab-trans" tabindex="0" hidden>
             <div>
               <h3>Document Localization &amp; Written Translation</h3>
@@ -1067,14 +932,12 @@
               </p>
               <ul class="feature-checklist">
                 <li><span class="check-icon" aria-hidden="true">&#10003;</span> <span>Human-led terminology verification—never raw machine output.</span></li>
-                <li><span class="check-icon" aria-hidden="true">&#10003;</span> <span>Formatting preservation across Word, Excel, PDF, and web application strings.</span></li>
-                <li><span class="check-icon" aria-hidden="true">&#10003;</span> <span>Signed Certificate of Accuracy available upon client request.</span></li>
+                <li><span class="check-icon" aria-hidden="true">&#10003;</span> <span>Formatting preservation across Word, Excel, PDF, and web strings.</span></li>
               </ul>
             </div>
             <div class="spec-box">
               <h4 style="margin-bottom:0.75rem; color:var(--brand-red);">Document Turnaround</h4>
-              <p style="font-size:0.9rem; margin-bottom:0.6rem;"><strong>Standard Delivery:</strong> 24–48 Business Hours (up to 2,500 words)</p>
-              <p style="font-size:0.9rem; margin-bottom:0.6rem;"><strong>Supported Formats:</strong> DOCX, XLSX, PDF, JSON, HTML</p>
+              <p style="font-size:0.9rem; margin-bottom:0.6rem;"><strong>Standard Delivery:</strong> 24–48 Business Hours</p>
               <p style="font-size:0.9rem;"><strong>Direct Submission:</strong> admin@serviciosroa.com</p>
             </div>
           </div>
@@ -1082,21 +945,21 @@
       </div>
     </section>
 
-    <!-- 3. INDUSTRY SECTORS -->
+    <!-- INDUSTRY SECTORS -->
     <section id="industries" aria-labelledby="industries-heading">
       <div class="container">
         <div class="section-header">
-          <h2 id="industries-heading" data-i18n="ind_heading">Specialized U.S. Verticals</h2>
-          <p data-i18n="ind_sub">Domain-specific vocabulary mastery tailored to regulated U.S. industries.</p>
+          <h2 id="industries-heading">Specialized U.S. Verticals</h2>
+          <p>Domain-specific vocabulary mastery tailored to regulated U.S. industries.</p>
         </div>
 
         <div class="cards-grid">
           <article class="sector-card">
             <div>
               <div class="sector-icon" aria-hidden="true">&#9877;</div>
-              <h3 data-i18n="ind_1_title">Healthcare &amp; Telemedicine</h3>
-              <p style="margin-top:0.65rem;" data-i18n="ind_1_desc">
-                Fluent command of anatomy, pharmacology, diagnostic procedures, post-discharge instructions, and Medicare/Medicaid member services following HIPAA privacy safeguards.
+              <h3>Healthcare &amp; Telemedicine</h3>
+              <p style="margin-top:0.65rem;">
+                Fluent command of anatomy, pharmacology, diagnostic procedures, and Medicare/Medicaid member services following HIPAA privacy safeguards.
               </p>
             </div>
           </article>
@@ -1104,9 +967,9 @@
           <article class="sector-card">
             <div>
               <div class="sector-icon" aria-hidden="true">&#9878;</div>
-              <h3 data-i18n="ind_2_title">Legal, Immigration &amp; Courts</h3>
-              <p style="margin-top:0.65rem;" data-i18n="ind_2_desc">
-                Impartial first-person consecutive interpretation for attorney-client consultations, USCIS preparation, workers’ compensation hearings, and civil depositions.
+              <h3>Legal, Immigration &amp; Courts</h3>
+              <p style="margin-top:0.65rem;">
+                Impartial first-person consecutive interpretation for attorney-client consultations, USCIS preparation, and civil depositions.
               </p>
             </div>
           </article>
@@ -1114,9 +977,9 @@
           <article class="sector-card">
             <div>
               <div class="sector-icon" aria-hidden="true">&#127970;</div>
-              <h3 data-i18n="ind_3_title">Insurance, Finance &amp; B2B</h3>
-              <p style="margin-top:0.65rem;" data-i18n="ind_3_desc">
-                Auto and property casualty claims statements, underwriting verifications, collections compliance, and technical support escalations for U.S. contact centers.
+              <h3>Insurance, Finance &amp; B2B</h3>
+              <p style="margin-top:0.65rem;">
+                Auto and property casualty claims statements, underwriting verifications, collections compliance, and technical support for U.S. contact centers.
               </p>
             </div>
           </article>
@@ -1124,7 +987,7 @@
       </div>
     </section>
 
-    <!-- 4. TELECOMMUNICATIONS & SECURITY COMPLIANCE -->
+    <!-- COMPLIANCE -->
     <section id="compliance" aria-labelledby="compliance-heading" style="padding-top:1rem;">
       <div class="container">
         <div class="ops-card">
@@ -1132,28 +995,26 @@
             Corporate Governance &amp; U.S. Telecommunications Verification
           </h2>
           <p style="margin-bottom:1rem;">
-            <strong>Servicios Roa — Language Specialized Department</strong> operates strictly on a business-to-business (B2B) and scheduled interpretation basis. All sessions are conducted from a secure, access-controlled environment with zero call recording unless explicitly required by your enterprise contract.
+            <strong>Servicios Roa — Language Specialized Department</strong> operates strictly on a business-to-business (B2B) and scheduled interpretation basis with zero call recording unless explicitly required by your contract.
           </p>
           <div style="padding:1rem; background:rgba(0, 168, 232, 0.08); border-left:4px solid var(--brand-cyan); border-radius:6px;">
             <strong style="color:var(--text-primary); display:block; margin-bottom:0.25rem;">
               Official Outbound Caller ID Notice — +1 (609) 604-9955
             </strong>
             <p style="font-size:0.88rem; margin:0;">
-              Outbound calls originating from <strong>+1 (609) 604-9955</strong> are legitimate B2B coordination, client callbacks, and live OPI/VRI interpretation bridges initiated by <strong>Servicios Roa</strong> (<a href="https://serviciosroa.com">https://serviciosroa.com</a>). We never engage in unsolicited consumer telemarketing or automated robocalling.
+              Outbound calls originating from <strong>+1 (609) 604-9955</strong> are legitimate B2B coordination, client callbacks, and live OPI/VRI interpretation bridges initiated by <strong>Servicios Roa</strong> (<a href="https://serviciosroa.com">https://serviciosroa.com</a>). We never engage in unsolicited consumer telemarketing.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 5. QUOTE ESTIMATOR & ENCRYPTED FORM -->
+    <!-- QUOTE ESTIMATOR & FORM -->
     <section id="quote" aria-labelledby="quote-heading">
       <div class="container quote-layout">
-
-        <!-- Left Column: Interactive Volume Estimator -->
         <div class="info-card">
-          <h2 id="quote-heading" style="font-size:1.65rem;" data-i18n="quote_heading">Volume &amp; SLA Estimator</h2>
-          <p style="margin:0.6rem 0 1.5rem;" data-i18n="quote_sub">
+          <h2 id="quote-heading" style="font-size:1.65rem;">Volume &amp; SLA Estimator</h2>
+          <p style="margin:0.6rem 0 1.5rem;">
             Adjust the slider below to estimate your organization’s monthly Spanish-English OPI/VRI interpretation tier.
           </p>
 
@@ -1161,7 +1022,7 @@
             <label for="volume-slider">
               Estimated Monthly Interpretation Hours: <strong id="slider-val-display" style="color:var(--brand-gold); font-size:1.1rem;">40 hrs / mo</strong>
             </label>
-            <input type="range" id="volume-slider" min="5" max="300" step="5" value="40" aria-valuemin="5" aria-valuemax="300" aria-valuenow="40" style="width:100%; accent-color:var(--brand-cyan); cursor:pointer; margin-top:0.5rem;" />
+            <input type="range" id="volume-slider" min="5" max="300" step="5" value="40" style="width:100%; accent-color:var(--brand-cyan); cursor:pointer; margin-top:0.5rem;" />
           </div>
 
           <div class="spec-box" aria-live="polite">
@@ -1183,36 +1044,35 @@
           </div>
         </div>
 
-        <!-- Right Column: Accessible Form with Built-in Fallback State -->
         <div class="form-card">
           <div style="margin-bottom:1.25rem;">
-            <h3 style="font-size:1.35rem;" data-i18n="form_title">Service Partnership &amp; Quote Request</h3>
-            <p style="font-size:0.86rem;">Dispatched over encrypted HTTPS to the <strong>Servicios Roa Language Operations Desk</strong> (<a href="mailto:admin@serviciosroa.com">admin@serviciosroa.com</a>).</p>
+            <h3 style="font-size:1.35rem;">Service Partnership &amp; Quote Request</h3>
+            <p style="font-size:0.86rem;">Dispatched over encrypted HTTPS to <strong>admin@serviciosroa.com</strong>.</p>
           </div>
 
           <form id="b2b-quote-form" novalidate>
             <div class="form-grid">
               <div class="form-group">
-                <label for="org-name">Organization / Company Name <span class="required-star" aria-hidden="true">*</span></label>
-                <input type="text" id="org-name" name="organization" required autocomplete="organization" placeholder="e.g., Apex Telehealth or Law Group" aria-describedby="err-org" />
+                <label for="org-name">Organization / Company Name <span class="required-star">*</span></label>
+                <input type="text" id="org-name" name="organization" required placeholder="e.g., Apex Telehealth or Law Group" aria-describedby="err-org" />
                 <span id="err-org" class="field-error" role="alert">Please enter your organization or company name.</span>
               </div>
 
               <div class="form-group">
-                <label for="contact-name">Your Name or Department Role <span class="required-star" aria-hidden="true">*</span></label>
-                <input type="text" id="contact-name" name="contact_role" required autocomplete="name" placeholder="e.g., Vendor Management / Clinic Director" aria-describedby="err-name" />
+                <label for="contact-name">Your Name or Department Role <span class="required-star">*</span></label>
+                <input type="text" id="contact-name" name="contact_role" required placeholder="e.g., Clinic Director" aria-describedby="err-name" />
                 <span id="err-name" class="field-error" role="alert">Please enter your name or role.</span>
               </div>
 
               <div class="form-group">
-                <label for="work-email">Work Email Address <span class="required-star" aria-hidden="true">*</span></label>
-                <input type="email" id="work-email" name="email" required autocomplete="email" placeholder="name@company.com" aria-describedby="err-email" />
+                <label for="work-email">Work Email Address <span class="required-star">*</span></label>
+                <input type="email" id="work-email" name="email" required placeholder="name@company.com" aria-describedby="err-email" />
                 <span id="err-email" class="field-error" role="alert">Please enter a valid work email address.</span>
               </div>
 
               <div class="form-group">
-                <label for="work-phone">Direct Phone Number <span class="required-star" aria-hidden="true">*</span></label>
-                <input type="tel" id="work-phone" name="phone" required autocomplete="tel" placeholder="+1 (555) 000-0000" aria-describedby="err-phone" />
+                <label for="work-phone">Direct Phone Number <span class="required-star">*</span></label>
+                <input type="tel" id="work-phone" name="phone" required placeholder="+1 (555) 000-0000" aria-describedby="err-phone" />
                 <span id="err-phone" class="field-error" role="alert">Please enter a valid contact phone number.</span>
               </div>
 
@@ -1245,52 +1105,41 @@
 
               <div class="form-group full-width">
                 <label for="project-notes">Project Scope, Platform (Zoom/SIP/PBX), or Onboarding Details</label>
-                <textarea id="project-notes" name="notes" rows="3" placeholder="Tell us about your call routing platform, desired start date, or billing preferences..."></textarea>
+                <textarea id="project-notes" name="notes" rows="3" placeholder="Tell us about your call routing platform or desired start date..."></textarea>
               </div>
 
               <div class="form-group full-width" style="flex-direction:row; align-items:flex-start; gap:0.65rem; margin-top:0.25rem;">
-                <input type="checkbox" id="consent-check" required style="margin-top:0.25rem; accent-color:var(--brand-cyan);" aria-describedby="err-consent" />
+                <input type="checkbox" id="consent-check" required style="margin-top:0.25rem; accent-color:var(--brand-cyan);" />
                 <label for="consent-check" style="text-transform:none; font-weight:500; font-size:0.84rem; letter-spacing:0;">
-                  I authorize <strong>Servicios Roa</strong> to contact our organization via phone (<strong>+1 609-604-9955</strong>) or email (<strong>admin@serviciosroa.com</strong>) regarding this business inquiry.
+                  I authorize <strong>Servicios Roa</strong> to contact our organization via phone (<strong>+1 609-604-9955</strong>) or email (<strong>admin@serviciosroa.com</strong>).
                 </label>
               </div>
-              <span id="err-consent" class="field-error full-width" role="alert">Please check the authorization box to proceed.</span>
             </div>
 
             <button type="submit" id="submit-quote-btn" class="btn btn-primary" style="width:100%; margin-top:1.25rem;">
-              <span aria-hidden="true">&#128274;</span> <span data-i18n="btn_submit">Send Encrypted Quote Request</span>
+              <span aria-hidden="true">&#128274;</span> Send Encrypted Quote Request
             </button>
 
-            <!-- Accessible Fallback State Banner (Activates automatically if network is offline or awaiting activation) -->
-            <div id="form-fallback-banner" class="fallback-banner" role="alert" aria-live="assertive">
-              <strong style="color:var(--brand-gold); display:block; margin-bottom:0.35rem;">
-                Direct Backup Delivery Activated
-              </strong>
-              <p style="font-size:0.86rem; margin-bottom:0.85rem;">
-                Your quote packet has been formatted locally so no information is lost. Choose a direct delivery option below:
-              </p>
+            <div id="form-fallback-banner" class="fallback-banner" role="alert">
+              <strong style="color:var(--brand-gold); display:block; margin-bottom:0.35rem;">Direct Backup Delivery Activated</strong>
+              <p style="font-size:0.86rem; margin-bottom:0.85rem;">Your quote packet has been formatted locally:</p>
               <div style="display:flex; flex-wrap:wrap; gap:0.65rem;">
-                <a id="fallback-mailto-link" href="mailto:admin@serviciosroa.com" class="btn btn-primary" style="font-size:0.85rem; padding:0.6rem 1rem;">
-                  Open Default Email App
-                </a>
-                <button type="button" id="fallback-copy-btn" class="btn btn-secondary" style="font-size:0.85rem; padding:0.6rem 1rem;">
-                  Copy Formatted Quote Packet
-                </button>
+                <a id="fallback-mailto-link" href="mailto:admin@serviciosroa.com" class="btn btn-primary" style="font-size:0.85rem; padding:0.6rem 1rem;">Open Email App</a>
+                <button type="button" id="fallback-copy-btn" class="btn btn-secondary" style="font-size:0.85rem; padding:0.6rem 1rem;">Copy Packet</button>
               </div>
             </div>
 
             <div class="privacy-guarantee">
-              <span aria-hidden="true" style="color:var(--brand-green); font-size:1.2rem;">&#128737;</span>
-              <span><strong>Zero-Database Privacy Guarantee:</strong> Your inquiry is transmitted over TLS/HTTPS directly to <code>admin@serviciosroa.com</code> and is never stored on a public server.</span>
+              <span style="color:var(--brand-green); font-size:1.2rem;">&#128737;</span>
+              <span><strong>Zero-Database Privacy Guarantee:</strong> Transmitted via TLS/HTTPS directly to <code>admin@serviciosroa.com</code>.</span>
             </div>
           </form>
         </div>
       </div>
     </section>
-
   </main>
 
-  <!-- ==================== FOOTER ==================== -->
+  <!-- FOOTER -->
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="footer-grid">
@@ -1307,14 +1156,13 @@
           <strong style="color:var(--text-primary); display:block; margin-bottom:0.5rem;">Direct U.S. Contact</strong>
           <p style="font-size:0.86rem;">Phone: <a href="tel:+16096049955">+1 (609) 604-9955</a></p>
           <p style="font-size:0.86rem;">Email: <a href="mailto:admin@serviciosroa.com">admin@serviciosroa.com</a></p>
-          <p style="font-size:0.86rem;">Web: <a href="https://serviciosroa.com">https://serviciosroa.com</a></p>
         </div>
 
         <div>
           <strong style="color:var(--text-primary); display:block; margin-bottom:0.5rem;">Compliance &amp; Legal</strong>
           <div style="display:flex; flex-direction:column; align-items:flex-start; gap:0.3rem;">
-            <button type="button" class="footer-link-btn" data-open-modal="privacy-modal">Privacy &amp; HIPAA Confidentiality Policy</button>
-            <button type="button" class="footer-link-btn" data-open-modal="telecom-modal">Telecom &amp; Outbound Calling Policy</button>
+            <button type="button" class="footer-link-btn" data-open-modal="privacy-modal">Privacy &amp; HIPAA Policy</button>
+            <button type="button" class="footer-link-btn" data-open-modal="telecom-modal">Telecom Notice</button>
           </div>
         </div>
       </div>
@@ -1326,69 +1174,46 @@
     </div>
   </footer>
 
-  <!-- ==================== ACCESSIBLE MODALS ==================== -->
-
-  <!-- 1. Quote Confirmation / Fallback Modal -->
-  <div class="modal-backdrop" id="quote-modal" role="dialog" aria-modal="true" aria-labelledby="modal-dispatch-title">
+  <!-- MODALS -->
+  <div class="modal-backdrop" id="quote-modal" role="dialog" aria-modal="true">
     <div class="modal-dialog">
       <h3 id="modal-dispatch-title" style="color:var(--brand-cyan);">Encrypted Quote Request Dispatched</h3>
-      <p id="modal-dispatch-desc" style="font-size:0.9rem; margin-top:0.4rem;">
-        Your inquiry has been prepared for the Servicios Roa Language Specialized Department (admin@serviciosroa.com).
-      </p>
+      <p id="modal-dispatch-desc" style="font-size:0.9rem; margin-top:0.4rem;">Your inquiry has been prepared for admin@serviciosroa.com.</p>
       <pre id="modal-summary-box" class="summary-pre"></pre>
       <div style="display:flex; flex-wrap:wrap; gap:0.75rem; justify-content:flex-end;">
-        <a id="modal-mailto-link" href="mailto:admin@serviciosroa.com" class="btn btn-secondary" style="font-size:0.86rem;">
-          Send via Email App Backup
-        </a>
-        <button type="button" id="modal-copy-btn" class="btn btn-secondary" style="font-size:0.86rem;">
-          Copy Summary
-        </button>
-        <button type="button" class="btn btn-primary" data-close-modal style="font-size:0.86rem;">
-          Done
-        </button>
+        <a id="modal-mailto-link" href="mailto:admin@serviciosroa.com" class="btn btn-secondary" style="font-size:0.86rem;">Email App Backup</a>
+        <button type="button" id="modal-copy-btn" class="btn btn-secondary" style="font-size:0.86rem;">Copy Summary</button>
+        <button type="button" class="btn btn-primary" data-close-modal style="font-size:0.86rem;">Done</button>
       </div>
     </div>
   </div>
 
-  <!-- 2. Privacy & Confidentiality Modal -->
-  <div class="modal-backdrop" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title">
+  <div class="modal-backdrop" id="privacy-modal" role="dialog" aria-modal="true">
     <div class="modal-dialog">
-      <h3 id="privacy-modal-title">Privacy &amp; Confidentiality Policy</h3>
+      <h3>Privacy &amp; Confidentiality Policy</h3>
       <p style="font-size:0.9rem; margin:0.85rem 0;">
-        <strong>Servicios Roa</strong> adheres to strict confidentiality and data protection standards for all Over-the-Phone (OPI), Video Remote (VRI), and written translation engagements.
+        <strong>Servicios Roa</strong> adheres to strict confidentiality standards. No audio or video sessions are recorded, and data is transmitted solely to <code>admin@serviciosroa.com</code>.
       </p>
-      <ul class="feature-checklist" style="margin-bottom:1.25rem;">
-        <li><span class="check-icon">&#10003;</span> <span>No audio or video interpretation sessions are recorded or stored.</span></li>
-        <li><span class="check-icon">&#10003;</span> <span>Protected Health Information (PHI) and privileged legal communications are handled in accordance with HIPAA and professional interpreter ethics.</span></li>
-        <li><span class="check-icon">&#10003;</span> <span>Quote form submissions are transmitted solely to <code>admin@serviciosroa.com</code> and are never sold or shared with third parties.</span></li>
-      </ul>
       <button type="button" class="btn btn-primary" data-close-modal>Close Policy</button>
     </div>
   </div>
 
-  <!-- 3. Telecommunications Verification Modal -->
-  <div class="modal-backdrop" id="telecom-modal" role="dialog" aria-modal="true" aria-labelledby="telecom-modal-title">
+  <div class="modal-backdrop" id="telecom-modal" role="dialog" aria-modal="true">
     <div class="modal-dialog">
-      <h3 id="telecom-modal-title">U.S. Telecommunications &amp; Outbound Calling Policy</h3>
+      <h3>U.S. Telecommunications &amp; Outbound Calling Policy</h3>
       <p style="font-size:0.9rem; margin:0.85rem 0;">
         <strong>Official Line:</strong> +1 (609) 604-9955<br />
-        <strong>Operating Entity:</strong> Servicios Roa — Language Specialized Department (<a href="https://serviciosroa.com">serviciosroa.com</a>)
-      </p>
-      <p style="font-size:0.9rem; margin-bottom:1.25rem;">
-        This telephone line is used exclusively for scheduled B2B client communications, live Over-the-Phone Interpretation (OPI) conference bridges, and responses to direct business inquiries submitted via <code>serviciosroa.com</code>. Servicios Roa does not conduct cold telemarketing or automated dialing.
+        This line is used exclusively for scheduled B2B client communications and live interpretation bridges.
       </p>
       <button type="button" class="btn btn-primary" data-close-modal>Close Notice</button>
     </div>
   </div>
 
-  <!-- ==================== CLEAN EVENT-DRIVEN JAVASCRIPT ==================== -->
+  <!-- JAVASCRIPT -->
   <script>
     (function () {
       'use strict';
 
-      /* ----------------------------------------------------------------------
-         1. MOBILE NAVIGATION DRAWER
-         ---------------------------------------------------------------------- */
       const mobileMenuBtn = document.getElementById('mobile-menu-btn');
       const primaryNavList = document.getElementById('primary-nav-list');
 
@@ -1397,7 +1222,6 @@
           const isOpen = primaryNavList.classList.toggle('mobile-open');
           mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
         });
-
         primaryNavList.querySelectorAll('a').forEach((link) => {
           link.addEventListener('click', () => {
             primaryNavList.classList.remove('mobile-open');
@@ -1406,9 +1230,6 @@
         });
       }
 
-      /* ----------------------------------------------------------------------
-         2. HIGH-CONTRAST ACCESSIBILITY TOGGLE
-         ---------------------------------------------------------------------- */
       const contrastToggle = document.getElementById('contrast-toggle');
       if (contrastToggle) {
         contrastToggle.addEventListener('click', () => {
@@ -1417,89 +1238,6 @@
         });
       }
 
-      /* ----------------------------------------------------------------------
-         3. BILINGUAL (EN / ES) INTERFACE SWITCHER
-         ---------------------------------------------------------------------- */
-      const translations = {
-        en: {
-          brand_sub: 'Language Specialized Dept.',
-          nav_solutions: 'OPI & VRI Solutions',
-          nav_industries: 'U.S. Sectors',
-          nav_compliance: 'Security & Telecom',
-          nav_quote: 'Get a Quote',
-          btn_contrast: 'Contrast',
-          hero_badge: 'U.S. B2B Spanish \u2194 English Language Infrastructure',
-          hero_title_1: 'Precision',
-          hero_title_highlight: 'OPI & VRI Interpretation',
-          hero_title_2: 'for U.S. Enterprises.',
-          hero_lead: 'Servicios Roa\u2019s Language Specialized Department delivers on-demand and scheduled Over-the-Phone (OPI) and Video Remote Interpretation (VRI) for U.S. healthcare networks, legal practices, insurance carriers, and Language Service Providers.',
-          cta_primary: 'Request Enterprise Quote',
-          cta_secondary: 'Direct U.S. Line: (609) 604-9955',
-          metric_1: 'Average OPI / VRI Bridge Time',
-          metric_2: 'Confidentiality Protocols',
-          metric_3: 'Terminology Accuracy Audit',
-          ops_title: 'Language Operations Desk',
-          ops_status: 'Active 24/7',
-          sol_heading: 'Specialized Communication Modalities',
-          sol_sub: 'Use your mouse or Left/Right arrow keys to explore how we integrate into your existing U.S. clinical, legal, or call-center workflows.',
-          ind_heading: 'Specialized U.S. Verticals',
-          ind_sub: 'Domain-specific vocabulary mastery tailored to regulated U.S. industries.',
-          ind_1_title: 'Healthcare & Telemedicine',
-          ind_2_title: 'Legal, Immigration & Courts',
-          ind_3_title: 'Insurance, Finance & B2B',
-          quote_heading: 'Volume & SLA Estimator',
-          form_title: 'Service Partnership & Quote Request',
-          btn_submit: 'Send Encrypted Quote Request'
-        },
-        es: {
-          brand_sub: 'Depto. Especializado en Idiomas',
-          nav_solutions: 'Soluciones OPI y VRI',
-          nav_industries: 'Sectores en EE. UU.',
-          nav_compliance: 'Seguridad y Telecom',
-          nav_quote: 'Cotizar',
-          btn_contrast: 'Contraste',
-          hero_badge: 'Infraestructura B2B de Interpretaci\u00f3n Ingl\u00e9s \u2194 Espa\u00f1ol',
-          hero_title_1: 'Interpretaci\u00f3n',
-          hero_title_highlight: 'OPI y VRI de Precisi\u00f3n',
-          hero_title_2: 'para Empresas en EE. UU.',
-          hero_lead: 'El Departamento Especializado en Idiomas de Servicios Roa brinda interpretaci\u00f3n telef\u00f3nica (OPI) y por video remoto (VRI) para redes de salud, firmas legales, aseguradoras y proveedores de idiomas en Estados Unidos.',
-          cta_primary: 'Solicitar Cotizaci\u00f3n B2B',
-          cta_secondary: 'L\u00ednea Directa EE. UU.: (609) 604-9955',
-          metric_1: 'Tiempo Promedio de Conexi\u00f3n',
-          metric_2: 'Protocolos de Confidencialidad',
-          metric_3: 'Precisi\u00f3n Terminol\u00f3gica',
-          ops_title: 'Centro de Operaciones Ling\u00fc\u00edsticas',
-          ops_status: 'Activo 24/7',
-          sol_heading: 'Modalidades Especializadas de Interpretaci\u00f3n',
-          sol_sub: 'Explore c\u00f3mo nos integramos en sus flujos cl\u00ednicos, legales o de centros de contacto en EE. UU.',
-          ind_heading: 'Sectores Especializados en EE. UU.',
-          ind_sub: 'Dominio terminol\u00f3gico adaptado a industrias reguladas.',
-          ind_1_title: 'Salud y Telemedicina',
-          ind_2_title: 'Legal, Inmigraci\u00f3n y Cortes',
-          ind_3_title: 'Seguros, Finanzas y B2B',
-          quote_heading: 'Estimador de Volumen Mensual',
-          form_title: 'Solicitud de Alianza y Cotizaci\u00f3n',
-          btn_submit: 'Enviar Solicitud Cifrada'
-        }
-      };
-
-      let currentLang = 'en';
-      const langToggle = document.getElementById('lang-toggle');
-      if (langToggle) {
-        langToggle.addEventListener('click', () => {
-          currentLang = currentLang === 'en' ? 'es' : 'en';
-          document.documentElement.lang = currentLang;
-          const dict = translations[currentLang];
-          document.querySelectorAll('[data-i18n]').forEach((el) => {
-            const key = el.getAttribute('data-i18n');
-            if (dict[key]) el.textContent = dict[key];
-          });
-        });
-      }
-
-      /* ----------------------------------------------------------------------
-         4. WCAG KEYBOARD-ACCESSIBLE TABS (OPI / VRI / TRANSLATION)
-         ---------------------------------------------------------------------- */
       const tabButtons = Array.from(document.querySelectorAll('[role="tab"]'));
       const tabPanels = Array.from(document.querySelectorAll('[role="tabpanel"]'));
 
@@ -1510,15 +1248,10 @@
           btn.setAttribute('tabindex', isMatch ? '0' : '-1');
           if (isMatch && moveFocus) btn.focus();
         });
-
         tabPanels.forEach((panel) => {
           const isMatch = panel.id === selectedTab.getAttribute('aria-controls');
           panel.classList.toggle('active', isMatch);
-          if (isMatch) {
-            panel.removeAttribute('hidden');
-          } else {
-            panel.setAttribute('hidden', '');
-          }
+          if (isMatch) panel.removeAttribute('hidden'); else panel.setAttribute('hidden', '');
         });
       }
 
@@ -1528,18 +1261,10 @@
           let targetIdx = null;
           if (e.key === 'ArrowRight') targetIdx = (idx + 1) % tabButtons.length;
           if (e.key === 'ArrowLeft') targetIdx = (idx - 1 + tabButtons.length) % tabButtons.length;
-          if (e.key === 'Home') targetIdx = 0;
-          if (e.key === 'End') targetIdx = tabButtons.length - 1;
-          if (targetIdx !== null) {
-            e.preventDefault();
-            activateTab(tabButtons[targetIdx], true);
-          }
+          if (targetIdx !== null) { e.preventDefault(); activateTab(tabButtons[targetIdx], true); }
         });
       });
 
-      /* ----------------------------------------------------------------------
-         5. INTERACTIVE VOLUME SLIDER SYNC
-         ---------------------------------------------------------------------- */
       const volumeSlider = document.getElementById('volume-slider');
       const sliderValDisplay = document.getElementById('slider-val-display');
       const estHoursInput = document.getElementById('est-hours');
@@ -1550,68 +1275,36 @@
         const hours = parseInt(hrs, 10) || 40;
         if (sliderValDisplay) sliderValDisplay.textContent = `${hours} hrs / mo`;
         if (volumeSlider) volumeSlider.setAttribute('aria-valuenow', String(hours));
-        if (estHoursInput && document.activeElement !== estHoursInput) {
-          estHoursInput.value = String(hours);
-        }
+        if (estHoursInput && document.activeElement !== estHoursInput) estHoursInput.value = String(hours);
 
         if (hours < 25) {
           tierName.textContent = 'On-Demand Pay-As-You-Go Tier';
-          tierDesc.textContent = 'Flexible per-minute OPI/VRI access with zero monthly minimums—ideal for smaller practices or occasional language needs.';
+          tierDesc.textContent = 'Flexible per-minute OPI/VRI access with zero monthly minimums.';
         } else if (hours <= 120) {
           tierName.textContent = 'Growth B2B Retainer / Priority Tier';
-          tierDesc.textContent = 'Discounted per-minute or block-hour rates with priority line bridging and consolidated monthly invoicing.';
+          tierDesc.textContent = 'Discounted per-minute or block-hour rates with priority line bridging.';
         } else {
           tierName.textContent = 'Enterprise Dedicated SLA Capacity';
-          tierDesc.textContent = 'Custom wholesale rates for high-volume clinics, contact centers, and LSP overflow queues with dedicated SLA guarantees.';
+          tierDesc.textContent = 'Custom wholesale rates for high-volume clinics and contact centers.';
         }
       }
 
-      if (volumeSlider) {
-        volumeSlider.addEventListener('input', (e) => updateVolumeEstimate(e.target.value));
-      }
-      if (estHoursInput) {
-        estHoursInput.addEventListener('input', (e) => {
-          if (volumeSlider) volumeSlider.value = e.target.value;
-          updateVolumeEstimate(e.target.value);
-        });
-      }
+      if (volumeSlider) volumeSlider.addEventListener('input', (e) => updateVolumeEstimate(e.target.value));
+      if (estHoursInput) estHoursInput.addEventListener('input', (e) => {
+        if (volumeSlider) volumeSlider.value = e.target.value;
+        updateVolumeEstimate(e.target.value);
+      });
 
-      /* ----------------------------------------------------------------------
-         6. ACCESSIBLE MODALS (OPEN / CLOSE / ESCAPE KEY)
-         ---------------------------------------------------------------------- */
       function openModal(id) {
         const modal = document.getElementById(id);
-        if (!modal) return;
-        modal.classList.add('open');
-        const closeBtn = modal.querySelector('[data-close-modal]');
-        if (closeBtn) closeBtn.focus();
+        if (modal) { modal.classList.add('open'); modal.querySelector('[data-close-modal]')?.focus(); }
       }
+      function closeAllModals() { document.querySelectorAll('.modal-backdrop.open').forEach(m => m.classList.remove('open')); }
 
-      function closeAllModals() {
-        document.querySelectorAll('.modal-backdrop.open').forEach((m) => m.classList.remove('open'));
-      }
+      document.querySelectorAll('[data-open-modal]').forEach(btn => btn.addEventListener('click', () => openModal(btn.getAttribute('data-open-modal'))));
+      document.querySelectorAll('[data-close-modal]').forEach(btn => btn.addEventListener('click', closeAllModals));
+      window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAllModals(); });
 
-      document.querySelectorAll('[data-open-modal]').forEach((btn) => {
-        btn.addEventListener('click', () => openModal(btn.getAttribute('data-open-modal')));
-      });
-
-      document.querySelectorAll('[data-close-modal]').forEach((btn) => {
-        btn.addEventListener('click', closeAllModals);
-      });
-
-      document.querySelectorAll('.modal-backdrop').forEach((backdrop) => {
-        backdrop.addEventListener('click', (e) => {
-          if (e.target === backdrop) closeAllModals();
-        });
-      });
-
-      window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeAllModals();
-      });
-
-      /* ----------------------------------------------------------------------
-         7. FORM VALIDATION, HTTPS AJAX DISPATCH & AUTOMATIC FALLBACK
-         ---------------------------------------------------------------------- */
       const quoteForm = document.getElementById('b2b-quote-form');
       const submitBtn = document.getElementById('submit-quote-btn');
       const fallbackBanner = document.getElementById('form-fallback-banner');
@@ -1646,17 +1339,6 @@
         ].join('\n');
       }
 
-      function buildMailtoUrl(data) {
-        const subject = encodeURIComponent(`B2B OPI/VRI Quote Request — ${data.org}`);
-        const body = encodeURIComponent(formatQuotePacket(data));
-        return `mailto:admin@serviciosroa.com?subject=${subject}&body=${body}`;
-      }
-
-      function setFieldError(inputEl, errorEl, hasError) {
-        inputEl.setAttribute('aria-invalid', String(hasError));
-        errorEl.classList.toggle('visible', hasError);
-      }
-
       function validateForm() {
         let valid = true;
         const orgInput = document.getElementById('org-name');
@@ -1666,26 +1348,27 @@
         const consentInput = document.getElementById('consent-check');
 
         const orgErr = !orgInput.value.trim();
-        setFieldError(orgInput, document.getElementById('err-org'), orgErr);
+        orgInput.setAttribute('aria-invalid', String(orgErr));
+        document.getElementById('err-org').classList.toggle('visible', orgErr);
         if (orgErr) valid = false;
 
         const nameErr = !nameInput.value.trim();
-        setFieldError(nameInput, document.getElementById('err-name'), nameErr);
+        nameInput.setAttribute('aria-invalid', String(nameErr));
+        document.getElementById('err-name').classList.toggle('visible', nameErr);
         if (nameErr) valid = false;
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const emailErr = !emailRegex.test(emailInput.value.trim());
-        setFieldError(emailInput, document.getElementById('err-email'), emailErr);
+        emailInput.setAttribute('aria-invalid', String(emailErr));
+        document.getElementById('err-email').classList.toggle('visible', emailErr);
         if (emailErr) valid = false;
 
         const phoneErr = phoneInput.value.trim().length < 7;
-        setFieldError(phoneInput, document.getElementById('err-phone'), phoneErr);
+        phoneInput.setAttribute('aria-invalid', String(phoneErr));
+        document.getElementById('err-phone').classList.toggle('visible', phoneErr);
         if (phoneErr) valid = false;
 
-        const consentErr = !consentInput.checked;
-        document.getElementById('err-consent').classList.toggle('visible', consentErr);
-        if (consentErr) valid = false;
-
+        if (!consentInput.checked) valid = false;
         return valid;
       }
 
@@ -1695,8 +1378,8 @@
           if (!validateForm()) return;
 
           const data = getFormData();
-          const mailtoHref = buildMailtoUrl(data);
           const packetText = formatQuotePacket(data);
+          const mailtoHref = `mailto:admin@serviciosroa.com?subject=${encodeURIComponent('Quote Request: ' + data.org)}&body=${encodeURIComponent(packetText)}`;
 
           document.getElementById('fallback-mailto-link').href = mailtoHref;
           document.getElementById('modal-mailto-link').href = mailtoHref;
@@ -1709,10 +1392,7 @@
           try {
             const response = await fetch('https://formsubmit.co/ajax/admin@serviciosroa.com', {
               method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-              },
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
               body: JSON.stringify({
                 _subject: `Servicios Roa Quote: ${data.org} (${data.modality})`,
                 _template: 'table',
@@ -1729,23 +1409,19 @@
             });
 
             const result = await response.json().catch(() => ({}));
-
             if (!response.ok || result.success === 'false' || result.success === false) {
-              throw new Error(result.message || 'Endpoint requires one-time email activation');
+              throw new Error('Endpoint requires activation');
             }
 
             document.getElementById('modal-dispatch-title').textContent = 'Encrypted Quote Request Dispatched';
-            document.getElementById('modal-dispatch-desc').textContent = `Your inquiry for ${data.org} has been transmitted over TLS/HTTPS to admin@serviciosroa.com. You can also save a copy below:`;
+            document.getElementById('modal-dispatch-desc').textContent = `Your inquiry for ${data.org} has been transmitted to admin@serviciosroa.com.`;
             document.getElementById('modal-summary-box').textContent = packetText;
             openModal('quote-modal');
-
             quoteForm.reset();
-            updateVolumeEstimate(40);
           } catch (err) {
-            console.warn('FormSubmit notice:', err.message);
             fallbackBanner.classList.add('visible');
             document.getElementById('modal-dispatch-title').textContent = 'Quote Packet Ready — Confirm Delivery';
-            document.getElementById('modal-dispatch-desc').textContent = 'If this is your first test, please check admin@serviciosroa.com (including Spam) for the one-time FormSubmit Activation Email, or click "Send via Email App Backup" below to deliver immediately:';
+            document.getElementById('modal-dispatch-desc').textContent = 'Please check admin@serviciosroa.com for the activation email, or use the backup below:';
             document.getElementById('modal-summary-box').textContent = packetText;
             openModal('quote-modal');
           } finally {
@@ -1755,30 +1431,21 @@
         });
       }
 
-      /* Copy to Clipboard Buttons */
-      function copySummaryToClipboard(btnEl) {
-        const text = formatQuotePacket(getFormData());
-        navigator.clipboard.writeText(text).then(() => {
-          const orig = btnEl.textContent;
-          btnEl.textContent = 'Copied to Clipboard!';
-          setTimeout(() => { btnEl.textContent = orig; }, 2200);
-        });
-      }
-
       const fallbackCopyBtn = document.getElementById('fallback-copy-btn');
       if (fallbackCopyBtn) {
-        fallbackCopyBtn.addEventListener('click', () => copySummaryToClipboard(fallbackCopyBtn));
+        fallbackCopyBtn.addEventListener('click', () => {
+          navigator.clipboard.writeText(formatQuotePacket(getFormData()));
+          fallbackCopyBtn.textContent = 'Copied!';
+          setTimeout(() => fallbackCopyBtn.textContent = 'Copy Packet', 2000);
+        });
       }
 
       const modalCopyBtn = document.getElementById('modal-copy-btn');
       if (modalCopyBtn) {
         modalCopyBtn.addEventListener('click', () => {
-          const summaryText = document.getElementById('modal-summary-box').textContent;
-          navigator.clipboard.writeText(summaryText).then(() => {
-            const orig = modalCopyBtn.textContent;
-            modalCopyBtn.textContent = 'Copied!';
-            setTimeout(() => { modalCopyBtn.textContent = orig; }, 2000);
-          });
+          navigator.clipboard.writeText(document.getElementById('modal-summary-box').textContent);
+          modalCopyBtn.textContent = 'Copied!';
+          setTimeout(() => modalCopyBtn.textContent = 'Copy Summary', 2000);
         });
       }
     })();
